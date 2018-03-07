@@ -1,10 +1,10 @@
 #!/bin/bash
 while read p; do
 	cd "/home/matt/Thesis/Full Source"
+	mkdir $p
 	tar -xzf "$p.tar.gz" -C $p
 	cd  $p/Volumes/Kevin_NGVS/SHIVir_Galaxies/$p
 	mv $p-I-Image.aedit.circ "/home/matt/Thesis/Working Sources/SHIVIR/$p"
 	mv $p-I-Image.pre "/home/matt/Thesis/Working Sources/SHIVIR/$p"
 	echo "Moved $p Files to Working Sources"
-	rm "/home/matt/Thesis/Full Source/$p"
 done <SHIVIR2.txt

@@ -8,6 +8,12 @@ Created on Tue Feb 13 12:14:06 2018
 
 import re
 import sys
+
+expString = "# Object number: 3\n0) expdisk\n1) $EXP1POS 1 1\n3) $EXP1MAG 1\n"+\   	
+            "4) $EXP1RE 1\n9) 0 1\n10) 0 1\nZ) 0"+\                  
+            "\n\n# Object number: 4\n"
+            
+noExpString = "# Object number:3\n"
         
 def processDecomp(galaxy):
     decomp = open("/home/matt/Thesis/Files From Kevin/decompositionValues.txt",'r')
@@ -91,9 +97,19 @@ def main(input1):
     #add final PA here for disk component
     
     # remove exp until can prove thru residuals that its justified to look for a halo
-    filedata = filedata.replace("$EXP1POS", center)
-    filedata = filedata.replace("$EXP1MAG", str(decompDict['mu_e3']))
-    filedata = filedata.replace("$EXP1RE", str(decompDict['r_e3']/0.187))
+    if buildHalo:
+        #this stuff is wrong
+        '''
+        filedata = filedata.replace("$EXP1POS", center)
+        filedata = filedata.replace("$EXP1MAG", str(decompDict['mu_e3']))
+        filedata = filedata.replace("$EXP1RE", str(decompDict['r_e3']/0.187))
+        '''
+        expString.replace($EXP1POS, center)
+        expString.replace("$EXP1MAG", str(decompDict['mu_e3']))
+        expString.replace(("$EXP1RE", str(decompDict['r_e3']/0.187)))
+        filedata = filedata.replace("$EXPBOOL", expString)
+    else:
+        filedata = filedata.replace("$EXPBOOL", noExpString)
     
     filedata = filedata.replace("$SKYEST", "1")
     
