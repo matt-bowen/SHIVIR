@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "maskcreate.py", line 12, in <module>
+    from astropy.io import fits
+ImportError: No module named astropy.io
+Traceback (most recent call last):
+  File "pixel-flag-flip.py", line 11, in <module>
+    from astropy.io import fits
+ImportError: No module named astropy.io

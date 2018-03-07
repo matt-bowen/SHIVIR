@@ -1,0 +1,29 @@
+#!/bin/bash
+while read p; do
+	mkdir $p
+	cd "/home/matt/Thesis/Full Source"
+	mkdir $p
+	tar -xzf "$p.tar.gz" -C $p
+	cd  $p/Volumes/Kevin_NGVS/SHIVir_Galaxies/$p
+	mv $p-I-Image.fits "/home/matt/Thesis/Working Sources/SHIVIR/$p"
+	mv $p-I-Image.aedit.circ "/home/matt/Thesis/Working Sources/SHIVIR/$p"
+	mv $p-I-Flag.fits "/home/matt/Thesis/Working Sources/SHIVIR/$p"
+	mv $p-I-Image.pre "/home/matt/Thesis/Working Sources/SHIVIR/$p"
+	mv $p-I-Sigma.fits "/home/matt/Thesis/Working Sources/SHIVIR/$p"
+	echo "Moved $p Files to Working Sources"
+	
+	cp "/home/matt/Thesis/Working Sources/SHIVIR/maskcreate.py" "/home/matt/Thesis/Working Sources/SHIVIR/$p"
+	cp "/home/matt/Thesis/Working Sources/SHIVIR/pixel-flag-flip.py" "/home/matt/Thesis/Working Sources/SHIVIR/$p"
+	cd "/home/matt/Thesis/Working Sources/SHIVIR/$p"
+	python maskcreate.py "$p-I-Flag.fits" "$p-I-Image.aedit.circ" "$p-I-Flag-Circ.fits" 2>> "python-error.log"
+	echo "Circ mask created"
+	python pixel-flag-flip.py "$p-I-Flag.fits" "$p-I-Flag-Invert.fits" 2>> "python-error.log"
+	echo "Pixel flags flipped for galfit"
+	rm maskcreate.py
+	rm pixel-flag-flip.py
+	echo "Python scripts removed from directory: $p"
+	cd "/home/matt/Thesis/Working Sources/SHIVIR"
+	
+done <SHIVIR2.txt
+
+

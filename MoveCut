@@ -1,0 +1,7 @@
+#!/bin/bash
+while read p; do
+	cd "/home/matt/Thesis/Full Source"
+	cd  $p/Volumes/Kevin_NGVS/SHIVir_Galaxies/$p
+	mv $p-I-Image_mag_cut3.prof "/home/matt/Thesis/Working Sources/SHIVIR/$p"
+	echo "Moved $p Files to Working Sources"
+done <SHIVIR.txt

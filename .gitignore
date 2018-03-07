@@ -1,0 +1,6 @@
+#galfit
+galfit
+
+#fits images and profiles
+*.fits
+*.prof

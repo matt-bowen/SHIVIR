@@ -1,0 +1,15 @@
+#!/bin/bash
+while read p; do
+	python galfitcreate.py $p
+	mv $p.galfit "/home/matt/Thesis/Working Sources/SHIVIR/$p"
+	echo "Created and moved galfit header file for: $p"
+	mv galfit "/home/matt/Thesis/Working Sources/SHIVIR/$p"
+	cd "/home/matt/Thesis/Working Sources/SHIVIR/$p"
+	./galfit $p.galfit >"/home/matt/Thesis/Working Sources/SHIVIR/galfitRunResults.txt"
+	mv galfit "/home/matt/Thesis/Working Sources/SHIVIR"
+	cd "/home/matt/Thesis/Working Sources/SHIVIR"
+	echo "Galfit run completed for: $p"
+	
+done <SHIVIR2.txt
+
+

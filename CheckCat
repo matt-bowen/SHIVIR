@@ -1,0 +1,5 @@
+#!/bin/bash
+while read p; do
+	cd "/home/matt/Thesis/Full Source"
+	find -maxdepth 1 -name "$p*" -print
+done <SHIVIR.txt
