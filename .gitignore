@@ -4,3 +4,5 @@ galfit
 #fits images and profiles
 *.fits
 *.prof
+*.pre
+*.circ
