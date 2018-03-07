@@ -37,16 +37,7 @@ P) 0                   		# Choose: 0=optimize, 1=model, 2=imgblock, 3=subcomps
 10) 0    1          	#  position angle (PA) [deg: Up=0, Left=90]
  Z) 0                   #  output option (0 = resid., 1 = Don't subtract) 
 
-# Object number: 3
- 0) expdisk             #  object type
- 1) $EXP1POS  1 1  
- 3) $EXP1MAG    1   	
- 4) $EXP1RE     1   
- 9) 0      1          	#  axis ratio (b/a)  
-10) 0    1          	#  position angle (PA) [deg: Up=0, Left=90]
- Z) 0                   #  output option (0 = resid., 1 = Don't subtract) 
-
-# Object number: 4
+$EXPBOOL
  0) sky                 #  object type
  1) $SKYEST      1   
  2) 0.0000      0       #  dsky/dx (sky gradient in x)
