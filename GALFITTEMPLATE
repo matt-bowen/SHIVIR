@@ -24,7 +24,7 @@ P) 0                   		# Choose: 0=optimize, 1=model, 2=imgblock, 3=subcomps
  4) $SERSIC1RE     1   
  5) $SERSIC1IND   1    
  9) 0      1          	#  axis ratio (b/a)  
-10) $SERSIC1PA
+10) $SERSIC1PA 1
  Z) 0                   #  output option (0 = resid., 1 = Don't subtract) 
 
 # Object number: 2
@@ -34,7 +34,7 @@ P) 0                   		# Choose: 0=optimize, 1=model, 2=imgblock, 3=subcomps
  4) $SERSIC2RE     1  
  5) $SERSIC2IND   1    
  9) 0      1          	#  axis ratio (b/a)  
-10) 0    1          	#  position angle (PA) [deg: Up=0, Left=90]
+10) $SERSIC1PA 1
  Z) 0                   #  output option (0 = resid., 1 = Don't subtract) 
 
 $EXPBOOL

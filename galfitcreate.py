@@ -9,8 +9,8 @@ Created on Tue Feb 13 12:14:06 2018
 import re
 import sys
 
-expString = "# Object number: 3\n0) expdisk\n1) $EXP1POS 1 1\n3) $EXP1MAG 1\n"+\   	
-            "4) $EXP1RE 1\n9) 0 1\n10) 0 1\nZ) 0"+\                  
+expString = "# Object number: 3\n0) expdisk\n1) $EXP1POS 1 1\n3) $EXP1MAG 1\n"+\
+            "4) $EXP1RE 1\n9) 0 1\n10) 0 1\nZ) 0"+\
             "\n\n# Object number: 4\n"
             
 noExpString = "# Object number:3\n"
@@ -39,20 +39,26 @@ def processProf(galaxy):
         pass
     line = line.split(" ")
     newline=[]
+    #PA5 = None
     for i in line:
         if i != "":
             newline.append(i)
-    newline[-1].replace("\n",'')
-    newline = [float(i) for i in newline]
+            newline[-1].replace("\n",'')
+            newline = [float(i) for i in newline]
+        if int(newline[0]) == 5:
+            PA5 = newline[4]
+    print(newline)
     
     profDict = {'radius': newline[0], 'ellip': newline[3],
-                'PA': newline[4], 'xpos': newline[8], 'ypos': newline[9]}
+                'PAFinal': newline[4], 'PA5': PA5,
+                'xpos': newline[8], 'ypos': newline[9]}
 
     return profDict
     
 def main(input1):
     galaxy = input1
-    #galaxy = "VCC0510"
+    buildHalo = False
+    
     
     decompDict = processDecomp(galaxy)
     profDict = processProf(galaxy)
@@ -87,14 +93,14 @@ def main(input1):
     filedata = filedata.replace("$SERSIC1MAG", str(decompDict['mu_e1']))
     filedata = filedata.replace("$SERSIC1RE", str(int(decompDict['r_e1']/0.187)))
     filedata = filedata.replace("$SERSIC1IND", str(decompDict['n1']))
-    filedata = filedata.replace("$SERSIC1PA", str(profDict['PA']))
+    filedata = filedata.replace("$SERSIC1PA", str(profDict['PA5']))
     #use PA at radius of 5 arcsec for bulge component
     
     filedata = filedata.replace("$SERSIC2POS", center)
     filedata = filedata.replace("$SERSIC2MAG", str(decompDict['mu_e2']))
     filedata = filedata.replace("$SERSIC2RE", str(int(decompDict['r_e2']/0.187)))
     filedata = filedata.replace("$SERSIC2IND", str(decompDict['n2']))
-    #add final PA here for disk component
+    filedata = filedata.replace("$SERSIC2PA", str(profDict['PAFinal']))
     
     # remove exp until can prove thru residuals that its justified to look for a halo
     if buildHalo:
@@ -104,7 +110,7 @@ def main(input1):
         filedata = filedata.replace("$EXP1MAG", str(decompDict['mu_e3']))
         filedata = filedata.replace("$EXP1RE", str(decompDict['r_e3']/0.187))
         '''
-        expString.replace($EXP1POS, center)
+        expString.replace("$EXP1POS", center)
         expString.replace("$EXP1MAG", str(decompDict['mu_e3']))
         expString.replace(("$EXP1RE", str(decompDict['r_e3']/0.187)))
         filedata = filedata.replace("$EXPBOOL", expString)
@@ -116,6 +122,7 @@ def main(input1):
     with open(galaxy+".galfit", 'w') as file:
         file.write(filedata)
     
-main(sys.argv[1])
+#main(sys.argv[1])
+processProf("VCC0355")
 
 
