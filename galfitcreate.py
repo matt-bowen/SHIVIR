@@ -36,18 +36,21 @@ def processDecomp(galaxy):
 def processProf(galaxy):
     path = "/home/matt/Thesis/Working Sources/SHIVIR/"+galaxy+"/"+galaxy+"-I-Image_mag_cut3.prof"
     for line in open(path, 'r'):
-        pass
-    line = line.split(" ")
-    newline=[]
-    #PA5 = None
-    for i in line:
-        if i != "":
-            newline.append(i)
-            newline[-1].replace("\n",'')
-            newline = [float(i) for i in newline]
-        if int(newline[0]) == 5:
-            PA5 = newline[4]
-    print(newline)
+        line = line.split(" ")
+        newline=[]
+        for i in line:
+            if i != "":
+                newline.append(i)
+                newline[-1].replace("\n",'')
+                try:
+                    newline = [float(i) for i in newline]
+                except ValueError:
+                    pass
+            try:
+                if int(newline[0]) == 5: #take PA at ~5 arcsec for bulge
+                    PA5 = newline[4]
+            except (IndexError, ValueError):
+                pass
     
     profDict = {'radius': newline[0], 'ellip': newline[3],
                 'PAFinal': newline[4], 'PA5': PA5,
@@ -58,6 +61,7 @@ def processProf(galaxy):
 def main(input1):
     galaxy = input1
     buildHalo = False
+    inclMask = False
     
     
     decompDict = processDecomp(galaxy)
@@ -66,22 +70,22 @@ def main(input1):
     #print("profile:", profDict)
     
     center = str(int(profDict['xpos'])) + ' ' + str(int(profDict['ypos']))
-    conbox = "200 200"
-    fitregion = str(int(profDict['xpos']-profDict['radius'])) + ' ' +\
-                str(int(profDict['xpos']+profDict['radius'])) + ' ' +\
-                str(int(profDict['ypos']-profDict['radius'])) + ' ' +\
-                str(int(profDict['ypos']+profDict['radius']))
+    conbox = "600 600"
+    addMoreRegion = 75
+    fitregion = str(int(profDict['xpos']-profDict['radius'])-addMoreRegion) + ' ' +\
+                str(int(profDict['xpos']+profDict['radius'])+addMoreRegion) + ' ' +\
+                str(int(profDict['ypos']-profDict['radius'])-addMoreRegion) + ' ' +\
+                str(int(profDict['ypos']+profDict['radius'])+addMoreRegion)
     
     
     with open("GALFITTEMPLATE", 'r') as file :
         filedata = file.read()
-    '''
-    incl_mask = input("Include pixel mask? (y/n): ")
-    if incl_mask == 'y':
+    
+    if inclMask:
         filedata = filedata.replace("$PIXELMASK", galaxy+"-I-Flag-Invert.fits")
     else:
         filedata = filedata.replace("$PIXELMASK", "none")
-    '''
+    
     filedata = filedata.replace("$PIXELMASK", "none")
     filedata = filedata.replace("$INPUTFILE", galaxy+"-I-Image.fits")
     filedata = filedata.replace("$OUTPUTFILE", galaxy+"-Output.fits")
@@ -93,23 +97,15 @@ def main(input1):
     filedata = filedata.replace("$SERSIC1MAG", str(decompDict['mu_e1']))
     filedata = filedata.replace("$SERSIC1RE", str(int(decompDict['r_e1']/0.187)))
     filedata = filedata.replace("$SERSIC1IND", str(decompDict['n1']))
-    filedata = filedata.replace("$SERSIC1PA", str(profDict['PA5']))
-    #use PA at radius of 5 arcsec for bulge component
+    filedata = filedata.replace("$SERSIC1PA", str(-profDict['PA5']))
     
     filedata = filedata.replace("$SERSIC2POS", center)
     filedata = filedata.replace("$SERSIC2MAG", str(decompDict['mu_e2']))
     filedata = filedata.replace("$SERSIC2RE", str(int(decompDict['r_e2']/0.187)))
     filedata = filedata.replace("$SERSIC2IND", str(decompDict['n2']))
-    filedata = filedata.replace("$SERSIC2PA", str(profDict['PAFinal']))
+    filedata = filedata.replace("$SERSIC2PA", str(-profDict['PAFinal']))
     
-    # remove exp until can prove thru residuals that its justified to look for a halo
     if buildHalo:
-        #this stuff is wrong
-        '''
-        filedata = filedata.replace("$EXP1POS", center)
-        filedata = filedata.replace("$EXP1MAG", str(decompDict['mu_e3']))
-        filedata = filedata.replace("$EXP1RE", str(decompDict['r_e3']/0.187))
-        '''
         expString.replace("$EXP1POS", center)
         expString.replace("$EXP1MAG", str(decompDict['mu_e3']))
         expString.replace(("$EXP1RE", str(decompDict['r_e3']/0.187)))
@@ -123,6 +119,5 @@ def main(input1):
         file.write(filedata)
     
 #main(sys.argv[1])
-processProf("VCC0355")
-
+main("VCC0543")
 
