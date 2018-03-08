@@ -1,14 +1,14 @@
 
 ===============================================================================
 # IMAGE and GALFIT CONTROL PARAMETERS
-A) VCC0543-I-Image.fits        	
-B) VCC0543-Output.fits       
-C) VCC0543-I-Sigma.fits      
+A) VCC0355-I-Image.fits        	
+B) VCC0355-Output.fits       
+C) VCC0355-I-Sigma.fits      
 D) none      #    		# Input PSF image and (optional) diffusion kernel
 E) 1                   		# PSF fine sampling factor relative to data 
 F) none 
 G) none                		# File with parameter constraints (ASCII file) 
-H) 916 1333 1806 2223
+H) 1744 2286 1744 2286
 I) 600 600   
 J) 30             		# Magnitude photometric zeropoint 
 K) 0.187  0.187        		# Plate scale (dx dy)    [arcsec per pixel]
@@ -19,22 +19,22 @@ P) 0                   		# Choose: 0=optimize, 1=model, 2=imgblock, 3=subcomps
 
 # Object number: 1
  0) sersic              #  object type
- 1) 1125 2015  1 1  
- 3) 21.2652844953    1   
- 4) 36     1   
- 5) 0.873022991876   1    
- 9) 0      1          	#  axis ratio (b/a)  
-10) -52.6 1
+ 1) 2015 2015  1 1  
+ 3) 17.150435791    1   
+ 4) 19     1   
+ 5) 1.62580118466   1    
+ 9) 0.1 1          	#  axis ratio (b/a)  
+10) -178.1 1
  Z) 0                   #  output option (0 = resid., 1 = Don't subtract) 
 
 # Object number: 2
  0) sersic              #  object type
- 1) 1125 2015  1 1  
- 3) 20.680915042    1   		
- 4) 78     1  
- 5) 25.7967315946   1    
- 9) 0      1          	#  axis ratio (b/a)  
-10) -62.1 1
+ 1) 2015 2015  1 1  
+ 3) 19.0556233275    1   		
+ 4) 70     1  
+ 5) 10   1    
+ 9) 0.09     1          	#  axis ratio (b/a)  
+10) -16.9 1
  Z) 0                   #  output option (0 = resid., 1 = Don't subtract) 
 
 # Object number:3

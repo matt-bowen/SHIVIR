@@ -8,12 +8,6 @@ Created on Tue Feb 13 12:14:06 2018
 
 import re
 import sys
-
-expString = "# Object number: 3\n0) expdisk\n1) $EXP1POS 1 1\n3) $EXP1MAG 1\n"+\
-            "4) $EXP1RE 1\n9) 0 1\n10) 0 1\nZ) 0"+\
-            "\n\n# Object number: 4\n"
-            
-noExpString = "# Object number:3"
         
 def processDecomp(galaxy):
     decomp = open("/home/matt/Thesis/Files From Kevin/decompositionValues.txt",'r')
@@ -22,7 +16,6 @@ def processDecomp(galaxy):
             decompVals = line
             
     decompVals = decompVals.split(" ")
-    print(decompVals)
     for i, j in enumerate(decompVals):
         if j[0].isdigit():
             decompVals[i] = float(j)
@@ -65,6 +58,11 @@ def main(input1):
     galaxy = input1
     buildHalo = False
     inclMask = False
+    expString = "# Object number: 3\n0) expdisk\n1) $EXP1POS 1 1\n3) $EXP1MAG 1\n"+\
+            "4) $EXP1RE 1\n9) 0 1\n10) 0 1\nZ) 0"+\
+            "\n\n# Object number: 4"
+            
+    noExpString = "# Object number:3"
     
     
     decompDict = processDecomp(galaxy)
@@ -113,9 +111,9 @@ def main(input1):
     #add axis ratio at end
     
     if buildHalo:
-        expString.replace("$EXP1POS", center)
-        expString.replace("$EXP1MAG", str(decompDict['mu_e3']))
-        expString.replace(("$EXP1RE", str(decompDict['r_e3']/0.187)))
+        expString = expString.replace("$EXP1POS", center)
+        expString = expString.replace("$EXP1MAG", str(decompDict['mu_e3']))
+        expString = expString.replace("$EXP1RE", str(decompDict['r_e3']/0.187))
         filedata = filedata.replace("$EXPBOOL", expString)
     else:
         filedata = filedata.replace("$EXPBOOL", noExpString)
@@ -125,6 +123,6 @@ def main(input1):
     with open(galaxy+".galfit", 'w') as file:
         file.write(filedata)
     
-#main(sys.argv[1])
-main("VCC0355")
+main(sys.argv[1])
+#main("VCC0355")
 

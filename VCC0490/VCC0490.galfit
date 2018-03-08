@@ -8,8 +8,8 @@ D) none      #    		# Input PSF image and (optional) diffusion kernel
 E) 1                   		# PSF fine sampling factor relative to data 
 F) none 
 G) none                		# File with parameter constraints (ASCII file) 
-H) 1889 2142 1888 2141
-I) 200 200   
+H) 1814 2217 1813 2216
+I) 600 600   
 J) 30             		# Magnitude photometric zeropoint 
 K) 0.187  0.187        		# Plate scale (dx dy)    [arcsec per pixel]
 O) regular             		# Display type (regular, curses, both)
@@ -23,8 +23,8 @@ P) 0                   		# Choose: 0=optimize, 1=model, 2=imgblock, 3=subcomps
  3) 20.4597575291    1   
  4) 4     1   
  5) 1.63837398775   1    
- 9) 0      1          	#  axis ratio (b/a)  
-10) 54.8
+ 9) 0.105 1
+10) -98.3 1
  Z) 0                   #  output option (0 = resid., 1 = Don't subtract) 
 
 # Object number: 2
@@ -33,22 +33,13 @@ P) 0                   		# Choose: 0=optimize, 1=model, 2=imgblock, 3=subcomps
  3) 20.3623841577    1   		
  4) 72     1  
  5) 25.633581577   1    
- 9) 0      1          	#  axis ratio (b/a)  
-10) 0    1          	#  position angle (PA) [deg: Up=0, Left=90]
+ 9) 0.091 1 
+10) -54.8 1
  Z) 0                   #  output option (0 = resid., 1 = Don't subtract) 
 
-# Object number: 3
- 0) expdisk             #  object type
- 1) 2016 2015  1 1  
- 3) 82.5072168055    1   	
- 4) 0.9035469431604278     1   
- 9) 0      1          	#  axis ratio (b/a)  
-10) 0    1          	#  position angle (PA) [deg: Up=0, Left=90]
- Z) 0                   #  output option (0 = resid., 1 = Don't subtract) 
-
-# Object number: 4
+# Object number:3
  0) sky                 #  object type
- 1) 1.9      1   
+ 1) 1      1   
  2) 0.0000      0       #  dsky/dx (sky gradient in x)
  3) 0.0000      0       #  dsky/dy (sky gradient in y)
  Z) 0                   #  output option (0 = resid., 1 = Don't subtract) 

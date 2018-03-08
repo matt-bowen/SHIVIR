@@ -23,7 +23,7 @@ P) 0                   		# Choose: 0=optimize, 1=model, 2=imgblock, 3=subcomps
  3) 17.150435791    1   
  4) 19     1   
  5) 1.62580118466   1    
- 9) 0.1 1          	#  axis ratio (b/a)  
+ 9) 0.128 1
 10) -178.1 1
  Z) 0                   #  output option (0 = resid., 1 = Don't subtract) 
 
@@ -32,13 +32,12 @@ P) 0                   		# Choose: 0=optimize, 1=model, 2=imgblock, 3=subcomps
  1) 2015 2015  1 1  
  3) 19.0556233275    1   		
  4) 70     1  
- 5) 10   1    
- 9) 0.09     1          	#  axis ratio (b/a)  
+ 5) 27.8250154114   1    
+ 9) 0.091 1 
 10) -16.9 1
  Z) 0                   #  output option (0 = resid., 1 = Don't subtract) 
 
 # Object number:3
-
  0) sky                 #  object type
  1) 1      1   
  2) 0.0000      0       #  dsky/dx (sky gradient in x)
