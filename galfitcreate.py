@@ -13,7 +13,7 @@ expString = "# Object number: 3\n0) expdisk\n1) $EXP1POS 1 1\n3) $EXP1MAG 1\n"+\
             "4) $EXP1RE 1\n9) 0 1\n10) 0 1\nZ) 0"+\
             "\n\n# Object number: 4\n"
             
-noExpString = "# Object number:3\n"
+noExpString = "# Object number:3"
         
 def processDecomp(galaxy):
     decomp = open("/home/matt/Thesis/Files From Kevin/decompositionValues.txt",'r')
@@ -22,6 +22,7 @@ def processDecomp(galaxy):
             decompVals = line
             
     decompVals = decompVals.split(" ")
+    print(decompVals)
     for i, j in enumerate(decompVals):
         if j[0].isdigit():
             decompVals[i] = float(j)
@@ -49,12 +50,14 @@ def processProf(galaxy):
             try:
                 if int(newline[0]) == 5: #take PA at ~5 arcsec for bulge
                     PA5 = newline[4]
+                    ellip5 = newline[3]
             except (IndexError, ValueError):
                 pass
     
     profDict = {'radius': newline[0], 'ellip': newline[3],
                 'PAFinal': newline[4], 'PA5': PA5,
-                'xpos': newline[8], 'ypos': newline[9]}
+                'xpos': newline[8], 'ypos': newline[9],
+                'ellip5': ellip5}
 
     return profDict
     
@@ -98,12 +101,16 @@ def main(input1):
     filedata = filedata.replace("$SERSIC1RE", str(int(decompDict['r_e1']/0.187)))
     filedata = filedata.replace("$SERSIC1IND", str(decompDict['n1']))
     filedata = filedata.replace("$SERSIC1PA", str(-profDict['PA5']))
+    filedata = filedata.replace("$SERSIC1ELLIP", str(profDict['ellip5']))
+    #add axis ratio at 5 arcsec
     
     filedata = filedata.replace("$SERSIC2POS", center)
     filedata = filedata.replace("$SERSIC2MAG", str(decompDict['mu_e2']))
     filedata = filedata.replace("$SERSIC2RE", str(int(decompDict['r_e2']/0.187)))
     filedata = filedata.replace("$SERSIC2IND", str(decompDict['n2']))
     filedata = filedata.replace("$SERSIC2PA", str(-profDict['PAFinal']))
+    filedata = filedata.replace("$SERSIC2ELLIP", str(profDict['ellip']))
+    #add axis ratio at end
     
     if buildHalo:
         expString.replace("$EXP1POS", center)
@@ -119,5 +126,5 @@ def main(input1):
         file.write(filedata)
     
 #main(sys.argv[1])
-main("VCC0543")
+main("VCC0355")
 
