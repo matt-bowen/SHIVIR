@@ -71,7 +71,7 @@ def main(input1):
     #print("profile:", profDict)
     
     center = str(int(profDict['xpos'])) + ' ' + str(int(profDict['ypos']))
-    conbox = "600 600"
+    conbox = "400 400"
     addMoreRegion = 75
     fitregion = str(int(profDict['xpos']-profDict['radius'])-addMoreRegion) + ' ' +\
                 str(int(profDict['xpos']+profDict['radius'])+addMoreRegion) + ' ' +\

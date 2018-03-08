@@ -9,7 +9,7 @@ E) 1                   		# PSF fine sampling factor relative to data
 F) none 
 G) none                		# File with parameter constraints (ASCII file) 
 H) 1744 2286 1744 2286
-I) 600 600   
+I) 400 400   
 J) 30             		# Magnitude photometric zeropoint 
 K) 0.187  0.187        		# Plate scale (dx dy)    [arcsec per pixel]
 O) regular             		# Display type (regular, curses, both)
