@@ -23,17 +23,16 @@ P) 0                   		# Choose: 0=optimize, 1=model, 2=imgblock, 3=subcomps
  3) 20.4597575291    1   
  4) 4     1   
  5) 1.63837398775   1    
- 9) 0.105 1
+ 9) 0.895 1
 10) -98.3 1
  Z) 0                   #  output option (0 = resid., 1 = Don't subtract) 
 
 # Object number: 2
- 0) sersic              #  object type
+ 0) expdisk              #  object type
  1) 2016 2015  1 1  
  3) 20.3623841577    1   		
- 4) 72     1  
- 5) 25.633581577   1    
- 9) 0.091 1 
+ 4) 72     1      
+ 9) 0.909 1 
 10) -54.8 1
  Z) 0                   #  output option (0 = resid., 1 = Don't subtract) 
 
