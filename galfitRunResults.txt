@@ -5,19 +5,19 @@ GALFIT Version 3.0.5 -- Apr. 23, 2013
 
 
 
-#  Input menu file: VCC0654.galfit
+#  Input menu file: VCC0778.galfit
 
 
 ================================================================================
 # IMAGE and GALFIT CONTROL PARAMETERS
-A) VCC0654-I-Image.fits      # Input data image (FITS file)
-B) VCC0654-Output.fits      # Output data image block
-C) VCC0654-I-Sigma.fits      # Sigma image name (made from data if blank or "none") 
+A) VCC0778-I-Image.fits      # Input data image (FITS file)
+B) VCC0778-Output.fits      # Output data image block
+C) VCC0778-I-Sigma.fits      # Sigma image name (made from data if blank or "none") 
 D) none       #        # Input PSF image and (optional) diffusion kernel
 E) 1                   # PSF fine sampling factor relative to data 
 F) none                # Bad pixel mask (FITS image or ASCII coord list)
 G) none                # File with parameter constraints (ASCII file) 
-H) 1774 2256 1774 2256 # Image region to fit (xmin xmax ymin ymax)
+H) 1783 2247 1783 2247 # Image region to fit (xmin xmax ymin ymax)
 I) 400    400          # Size of the convolution box (x y)
 J) 30.000              # Magnitude photometric zeropoint 
 K) 0.187  0.187        # Plate scale (dx dy)   [arcsec per pixel]
@@ -44,27 +44,27 @@ P) 0                   # Choose: 0=optimize, 1=model, 2=imgblock, 3=subcomps
 # Component number: 1
  0) sersic                 #  Component type
  1) 2015.0000 2015.0000 1 1  #  Position x, y
- 3) 18.6084     1          #  Integrated magnitude 
- 4) 29.0000     1          #  R_e (effective radius)   [pix]
- 5) 2.0006      1          #  Sersic index n (de Vaucouleurs n=4) 
+ 3) 17.4638     1          #  Integrated magnitude 
+ 4) 17.0000     1          #  R_e (effective radius)   [pix]
+ 5) 1.8423      1          #  Sersic index n (de Vaucouleurs n=4) 
  6) 0.0000      0          #     ----- 
  7) 0.0000      0          #     ----- 
  8) 0.0000      0          #     ----- 
- 9) 0.1190      1          #  Axis ratio (b/a)  
-10) -90.5000    1          #  Position angle (PA) [deg: Up=0, Left=90]
+ 9) 0.2320      1          #  Axis ratio (b/a)  
+10) -22.2000    1          #  Position angle (PA) [deg: Up=0, Left=90]
  Z) 0                      #  Skip this model in output image?  (yes=1, no=0)
 
 # Component number: 2
  0) sersic                 #  Component type
  1) 2015.0000 2015.0000 1 1  #  Position x, y
- 3) 19.6731     1          #  Integrated magnitude 
- 4) 145.0000    1          #  R_e (effective radius)   [pix]
- 5) 26.1763     1          #  Sersic index n (de Vaucouleurs n=4) 
+ 3) 18.8923     1          #  Integrated magnitude 
+ 4) 62.0000     1          #  R_e (effective radius)   [pix]
+ 5) 29.0372     1          #  Sersic index n (de Vaucouleurs n=4) 
  6) 0.0000      0          #     ----- 
  7) 0.0000      0          #     ----- 
  8) 0.0000      0          #     ----- 
- 9) 0.3330      1          #  Axis ratio (b/a)  
-10) -85.5000    1          #  Position angle (PA) [deg: Up=0, Left=90]
+ 9) 0.2120      1          #  Axis ratio (b/a)  
+10) -175.4000    1          #  Position angle (PA) [deg: Up=0, Left=90]
  Z) 0                      #  Skip this model in output image?  (yes=1, no=0)
 
 # Component number: 3
@@ -84,80 +84,80 @@ P) 0                   # Choose: 0=optimize, 1=model, 2=imgblock, 3=subcomps
 
 ================================================================================
 Initial parameters:
- sersic    : ( 2015.00,  2015.00)   18.61     29.00    2.00    0.12    89.50
- sersic    : ( 2015.00,  2015.00)   19.67    145.00  *26.18*   0.33   -85.50
+ sersic    : ( 2015.00,  2015.00)   17.46     17.00    1.84    0.23   -22.20
+ sersic    : ( 2015.00,  2015.00)   18.89     62.00  *29.04*   0.21     4.60
  sky       : [2015.00, 2015.00]  1.00e+00  [0.00e+00]  [0.00e+00]
 ================================================================================
 
-Iteration : 1     Chi2nu: 1.308e+05     dChi2/Chi2: -3.28e+16   alamda: 1e-01     
- sersic    : ( 2015.00,  2015.00)   18.61     29.00    2.00    0.12    89.50
- sersic    : ( 2015.00,  2015.00)   19.67    145.00  *26.18*   0.33   -85.50
+Iteration : 1     Chi2nu: 3.866e+05     dChi2/Chi2: -1.20e+16   alamda: 1e-01     
+ sersic    : ( 2015.00,  2015.00)   17.46     17.00    1.84    0.23   -22.20
+ sersic    : ( 2015.00,  2015.00)   18.89     62.00  *29.04*   0.21     4.60
  sky       : [2015.00, 2015.00]  1.00e+00  [0.00e+00]  [0.00e+00]
 COUNTDOWN = 99 
 
-Iteration : 2     Chi2nu: 1.308e+05     dChi2/Chi2: 2.57e-08    alamda: 1e+00     
- sersic    : ( 2015.00,  2015.00)   18.61     29.00    2.00    0.12    89.50
- sersic    : ( 2015.00,  2015.00)   19.67    145.00  *26.18*   0.33   -85.50
+Iteration : 2     Chi2nu: 3.866e+05     dChi2/Chi2: 2.45e-08    alamda: 1e+00     
+ sersic    : ( 2015.00,  2015.00)   17.46     17.00    1.84    0.23   -22.20
+ sersic    : ( 2015.00,  2015.00)   18.89     62.00  *29.04*   0.21     4.60
  sky       : [2015.00, 2015.00]  1.00e+00  [0.00e+00]  [0.00e+00]
 COUNTDOWN = 10 
 
-Iteration : 3     Chi2nu: 1.308e+05     dChi2/Chi2: 2.57e-08    alamda: 1e+01     
- sersic    : ( 2015.00,  2015.00)   18.61     29.00    2.00    0.12    89.50
- sersic    : ( 2015.00,  2015.00)   19.67    145.00  *26.18*   0.33   -85.50
+Iteration : 3     Chi2nu: 3.866e+05     dChi2/Chi2: 2.45e-08    alamda: 1e+01     
+ sersic    : ( 2015.00,  2015.00)   17.46     17.00    1.84    0.23   -22.20
+ sersic    : ( 2015.00,  2015.00)   18.89     62.00  *29.04*   0.21     4.60
  sky       : [2015.00, 2015.00]  1.00e+00  [0.00e+00]  [0.00e+00]
 COUNTDOWN = 9 
 
-Iteration : 4     Chi2nu: 1.308e+05     dChi2/Chi2: 2.57e-08    alamda: 1e+02     
- sersic    : ( 2015.00,  2015.00)   18.61     29.00    2.00    0.12    89.50
- sersic    : ( 2015.00,  2015.00)   19.67    145.00  *26.18*   0.33   -85.50
+Iteration : 4     Chi2nu: 3.866e+05     dChi2/Chi2: 2.45e-08    alamda: 1e+02     
+ sersic    : ( 2015.00,  2015.00)   17.46     17.00    1.84    0.23   -22.20
+ sersic    : ( 2015.00,  2015.00)   18.89     62.00  *29.04*   0.21     4.60
  sky       : [2015.00, 2015.00]  1.00e+00  [0.00e+00]  [0.00e+00]
 COUNTDOWN = 8 
 
-Iteration : 5     Chi2nu: 1.308e+05     dChi2/Chi2: 2.57e-08    alamda: 1e+03     
- sersic    : ( 2015.00,  2015.00)   18.61     29.00    2.00    0.12    89.50
- sersic    : ( 2015.00,  2015.00)   19.67    145.00  *26.18*   0.33   -85.50
+Iteration : 5     Chi2nu: 3.866e+05     dChi2/Chi2: 2.45e-08    alamda: 1e+03     
+ sersic    : ( 2015.00,  2015.00)   17.46     17.00    1.84    0.23   -22.20
+ sersic    : ( 2015.00,  2015.00)   18.89     62.00  *29.04*   0.21     4.60
  sky       : [2015.00, 2015.00]  1.00e+00  [0.00e+00]  [0.00e+00]
 COUNTDOWN = 7 
 
-Iteration : 6     Chi2nu: 1.308e+05     dChi2/Chi2: 2.57e-08    alamda: 1e+04     
- sersic    : ( 2015.00,  2015.00)   18.61     29.00    2.00    0.12    89.50
- sersic    : ( 2015.00,  2015.00)   19.67    145.00  *26.18*   0.33   -85.50
+Iteration : 6     Chi2nu: 3.866e+05     dChi2/Chi2: 2.45e-08    alamda: 1e+04     
+ sersic    : ( 2015.00,  2015.00)   17.46     17.00    1.84    0.23   -22.20
+ sersic    : ( 2015.00,  2015.00)   18.89     62.00  *29.04*   0.21     4.60
  sky       : [2015.00, 2015.00]  1.00e+00  [0.00e+00]  [0.00e+00]
 COUNTDOWN = 6 
 
-Iteration : 7     Chi2nu: 1.308e+05     dChi2/Chi2: 2.57e-08    alamda: 1e+05     
- sersic    : ( 2015.00,  2015.00)   18.61     29.00    2.00    0.12    89.50
- sersic    : ( 2015.00,  2015.00)   19.67    145.00  *26.18*   0.33   -85.50
+Iteration : 7     Chi2nu: 3.866e+05     dChi2/Chi2: 2.45e-08    alamda: 1e+05     
+ sersic    : ( 2015.00,  2015.00)   17.46     17.00    1.84    0.23   -22.20
+ sersic    : ( 2015.00,  2015.00)   18.89     62.00  *29.04*   0.21     4.60
  sky       : [2015.00, 2015.00]  1.00e+00  [0.00e+00]  [0.00e+00]
 COUNTDOWN = 5 
 
-Iteration : 8     Chi2nu: 1.308e+05     dChi2/Chi2: 2.57e-08    alamda: 1e+06     
- sersic    : ( 2015.00,  2015.00)   18.61     29.00    2.00    0.12    89.50
- sersic    : ( 2015.00,  2015.00)   19.67    145.00  *26.18*   0.33   -85.50
+Iteration : 8     Chi2nu: 3.866e+05     dChi2/Chi2: 2.45e-08    alamda: 1e+06     
+ sersic    : ( 2015.00,  2015.00)   17.46     17.00    1.84    0.23   -22.20
+ sersic    : ( 2015.00,  2015.00)   18.89     62.00  *29.04*   0.21     4.60
  sky       : [2015.00, 2015.00]  1.00e+00  [0.00e+00]  [0.00e+00]
 COUNTDOWN = 4 
 
-Iteration : 9     Chi2nu: 1.308e+05     dChi2/Chi2: 2.57e-08    alamda: 1e+07     
- sersic    : ( 2015.00,  2015.00)   18.61     29.00    2.00    0.12    89.50
- sersic    : ( 2015.00,  2015.00)   19.67    145.00  *26.18*   0.33   -85.50
+Iteration : 9     Chi2nu: 3.866e+05     dChi2/Chi2: 2.45e-08    alamda: 1e+07     
+ sersic    : ( 2015.00,  2015.00)   17.46     17.00    1.84    0.23   -22.20
+ sersic    : ( 2015.00,  2015.00)   18.89     62.00  *29.04*   0.21     4.60
  sky       : [2015.00, 2015.00]  1.00e+00  [0.00e+00]  [0.00e+00]
 COUNTDOWN = 3 
 
-Iteration : 10    Chi2nu: 1.308e+05     dChi2/Chi2: 2.57e-08    alamda: 1e+08     
- sersic    : ( 2015.00,  2015.00)   18.61     29.00    2.00    0.12    89.50
- sersic    : ( 2015.00,  2015.00)   19.67    145.00  *26.18*   0.33   -85.50
+Iteration : 10    Chi2nu: 3.866e+05     dChi2/Chi2: 2.45e-08    alamda: 1e+08     
+ sersic    : ( 2015.00,  2015.00)   17.46     17.00    1.84    0.23   -22.20
+ sersic    : ( 2015.00,  2015.00)   18.89     62.00  *29.04*   0.21     4.60
  sky       : [2015.00, 2015.00]  1.00e+00  [0.00e+00]  [0.00e+00]
 COUNTDOWN = 2 
 
-Iteration : 11    Chi2nu: 1.308e+05     dChi2/Chi2: 2.57e-08    alamda: 1e+09     
- sersic    : ( 2015.00,  2015.00)   18.61     29.00    2.00    0.12    89.50
- sersic    : ( 2015.00,  2015.00)   19.67    145.00  *26.18*   0.33   -85.50
+Iteration : 11    Chi2nu: 3.866e+05     dChi2/Chi2: 2.45e-08    alamda: 1e+09     
+ sersic    : ( 2015.00,  2015.00)   17.46     17.00    1.84    0.23   -22.20
+ sersic    : ( 2015.00,  2015.00)   18.89     62.00  *29.04*   0.21     4.60
  sky       : [2015.00, 2015.00]  1.00e+00  [0.00e+00]  [0.00e+00]
 COUNTDOWN = 1 
 
-Iteration : 12    Chi2nu: 1.308e+05     dChi2/Chi2: 2.57e-08    alamda: 1e+10     
- sersic    : ( 2015.00,  2015.00)   18.61     29.00    2.00    0.12    89.50
- sersic    : ( 2015.00,  2015.00)   19.67    145.00  *26.18*   0.33   -85.50
+Iteration : 12    Chi2nu: 3.866e+05     dChi2/Chi2: 2.45e-08    alamda: 1e+10     
+ sersic    : ( 2015.00,  2015.00)   17.46     17.00    1.84    0.23   -22.20
+ sersic    : ( 2015.00,  2015.00)   18.89     62.00  *29.04*   0.21     4.60
  sky       : [2015.00, 2015.00]  1.00e+00  [0.00e+00]  [0.00e+00]
 COUNTDOWN = 0 
 
