@@ -23,8 +23,8 @@ def processDecomp(galaxy):
     decompDict = {'galaxy': decompVals[0], 'mu_e1': decompVals[1],
                   'r_e1': decompVals[4], 'n1': decompVals[7],
                   'mu_e2': decompVals[10], 'r_e2': decompVals[13],
-                  'n2': decompVals[16], 'mu_e3': decompVals[19],
-                  'r_e3': decompVals[22]}
+                  'mu_e3': decompVals[16], 'r_e3': decompVals[19],
+                  'n3': decompVals[22]}
     return decompDict
     
 def processProf(galaxy):
@@ -58,6 +58,7 @@ def main(input1):
     galaxy = input1
     buildHalo = False
     inclMask = False
+    #change this to sersic
     expString = "# Object number: 3\n0) expdisk\n1) $EXP1POS 1 1\n3) $EXP1MAG 1\n"+\
             "4) $EXP1RE 1\n9) 0 1\n10) 0 1\nZ) 0"+\
             "\n\n# Object number: 4"
@@ -99,18 +100,17 @@ def main(input1):
     filedata = filedata.replace("$SERSIC1RE", str(int(decompDict['r_e1']/0.187)))
     filedata = filedata.replace("$SERSIC1IND", str(decompDict['n1']))
     filedata = filedata.replace("$SERSIC1PA", str(-profDict['PA5']))
-    filedata = filedata.replace("$SERSIC1ELLIP", str(profDict['ellip5']))
+    filedata = filedata.replace("$SERSIC1ELLIP", str(-profDict['ellip5']+1))
     #add axis ratio at 5 arcsec
     
-    filedata = filedata.replace("$SERSIC2POS", center)
-    filedata = filedata.replace("$SERSIC2MAG", str(decompDict['mu_e2']))
-    filedata = filedata.replace("$SERSIC2RE", str(int(decompDict['r_e2']/0.187)))
-    filedata = filedata.replace("$SERSIC2IND", str(decompDict['n2']))
-    filedata = filedata.replace("$SERSIC2PA", str(-profDict['PAFinal']))
-    filedata = filedata.replace("$SERSIC2ELLIP", str(profDict['ellip']))
+    filedata = filedata.replace("$EXPD1POS", center)
+    filedata = filedata.replace("$EXPD1MAG", str(decompDict['mu_e2']))
+    filedata = filedata.replace("$EXPD1RE", str(int(decompDict['r_e2']/0.187)))
+    filedata = filedata.replace("$EXPD1PA", str(-profDict['PAFinal']))
+    filedata = filedata.replace("$EXPD1ELLIP", str(-profDict['ellip']+1))
     #add axis ratio at end
     
-    if buildHalo:
+    if buildHalo: #change this to sersic
         expString = expString.replace("$EXP1POS", center)
         expString = expString.replace("$EXP1MAG", str(decompDict['mu_e3']))
         expString = expString.replace("$EXP1RE", str(decompDict['r_e3']/0.187))
@@ -123,6 +123,6 @@ def main(input1):
     with open(galaxy+".galfit", 'w') as file:
         file.write(filedata)
     
-main(sys.argv[1])
-#main("VCC0778")
+#main(sys.argv[1])
+main("VCC0355")
 

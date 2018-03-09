@@ -1,15 +1,15 @@
 
 ===============================================================================
 # IMAGE and GALFIT CONTROL PARAMETERS
-A) $INPUTFILE        	
-B) $OUTPUTFILE       
-C) $SIGMAFILE      
+A) VCC0355-I-Image.fits        	
+B) VCC0355-Output.fits       
+C) VCC0355-I-Sigma.fits      
 D) none      #    		# Input PSF image and (optional) diffusion kernel
 E) 1                   		# PSF fine sampling factor relative to data 
-F) $PIXELMASK 
+F) none 
 G) none                		# File with parameter constraints (ASCII file) 
-H) $FITREGION
-I) $CONBOX   
+H) 1744 2286 1744 2286
+I) 400 400   
 J) 30             		# Magnitude photometric zeropoint 
 K) 0.187  0.187        		# Plate scale (dx dy)    [arcsec per pixel]
 O) regular             		# Display type (regular, curses, both)
@@ -19,26 +19,26 @@ P) 0                   		# Choose: 0=optimize, 1=model, 2=imgblock, 3=subcomps
 
 # Object number: 1
  0) sersic              #  object type
- 1) $SERSIC1POS  1 1  
- 3) $SERSIC1MAG    1   
- 4) $SERSIC1RE     1   
- 5) $SERSIC1IND   1    
- 9) $SERSIC1ELLIP 1
-10) $SERSIC1PA 1
+ 1) 2015 2015  1 1  
+ 3) 17.150435791    1   
+ 4) 19     1   
+ 5) 1.62580118466   1    
+ 9) 0.872 1
+10) -178.1 1
  Z) 0                   #  output option (0 = resid., 1 = Don't subtract) 
 
 # Object number: 2
  0) expdisk              #  object type
- 1) $EXPD1POS  1 1  
- 3) $EXPD1MAG    1   		
- 4) $EXPD1RE     1      
- 9) $EXPD1ELLIP 1 
-10) $EXPD1PA 1
+ 1) 2015 2015  1 1  
+ 3) 19.0556233275    1   		
+ 4) 70     1      
+ 9) 0.909 1 
+10) -16.9 1
  Z) 0                   #  output option (0 = resid., 1 = Don't subtract) 
 
-$EXPBOOL
+# Object number:3
  0) sky                 #  object type
- 1) $SKYEST      1   
+ 1) 1      1   
  2) 0.0000      0       #  dsky/dx (sky gradient in x)
  3) 0.0000      0       #  dsky/dy (sky gradient in y)
  Z) 0                   #  output option (0 = resid., 1 = Don't subtract) 
