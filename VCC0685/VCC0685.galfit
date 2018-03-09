@@ -6,7 +6,7 @@ B) VCC0685-Output.fits
 C) VCC0685-I-Sigma.fits      
 D) none      #    		# Input PSF image and (optional) diffusion kernel
 E) 1                   		# PSF fine sampling factor relative to data 
-F) none 
+F) VCC0685-I-Flag-Circ.fits 
 G) none                		# File with parameter constraints (ASCII file) 
 H) 1770 2263 1767 2260
 I) 400 400   

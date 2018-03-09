@@ -6,7 +6,7 @@ B) VCC0725-Output.fits
 C) VCC0725-I-Sigma.fits      
 D) none      #    		# Input PSF image and (optional) diffusion kernel
 E) 1                   		# PSF fine sampling factor relative to data 
-F) none 
+F) VCC0725-I-Flag-Circ.fits 
 G) none                		# File with parameter constraints (ASCII file) 
 H) 1793 2236 1795 2238
 I) 400 400   
@@ -21,7 +21,7 @@ P) 0                   		# Choose: 0=optimize, 1=model, 2=imgblock, 3=subcomps
  0) sersic              #  object type
  1) 2015 2017  1 1  
  3) 19.1981540483    1   
- 4) 0     1   
+ 4) 0.8257912820267379     1   
  5) 0.136572208797   1    
  9) 0.33799999999999997 1
 10) -63.6 1
@@ -31,7 +31,7 @@ P) 0                   		# Choose: 0=optimize, 1=model, 2=imgblock, 3=subcomps
  0) expdisk              #  object type
  1) 2015 2017  1 1  
  3) 22.0892655052    1   		
- 4) 55     1      
+ 4) 55.93259720588235     1      
  9) 0.9410000000000001 1 
 10) -131.6 1
  Z) 0                   #  output option (0 = resid., 1 = Don't subtract) 

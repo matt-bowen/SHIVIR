@@ -25,7 +25,6 @@ def processDecomp(galaxy):
                   'mu_e2': decompVals[10], 'r_e2': decompVals[13],
                   'mu_e3': decompVals[16], 'r_e3': decompVals[19],
                   'n3': decompVals[22]}
-    print(decompDict)
     return decompDict
     
 def processProf(galaxy):
@@ -52,7 +51,6 @@ def processProf(galaxy):
                 'PAFinal': newline[4], 'PA5': PA5,
                 'xpos': newline[8], 'ypos': newline[9],
                 'ellip5': ellip5}
-    print(profDict)
     return profDict
     
 def main(input1):
@@ -125,5 +123,5 @@ def main(input1):
         file.write(filedata)
     
 #main(sys.argv[1])
-main("VCC0510")
+main("VCC0725")
 

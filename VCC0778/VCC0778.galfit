@@ -6,7 +6,7 @@ B) VCC0778-Output.fits
 C) VCC0778-I-Sigma.fits      
 D) none      #    		# Input PSF image and (optional) diffusion kernel
 E) 1                   		# PSF fine sampling factor relative to data 
-F) none 
+F) VCC0778-I-Flag-Circ.fits 
 G) none                		# File with parameter constraints (ASCII file) 
 H) 1783 2247 1783 2247
 I) 400 400   
