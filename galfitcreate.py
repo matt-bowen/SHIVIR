@@ -25,6 +25,7 @@ def processDecomp(galaxy):
                   'mu_e2': decompVals[10], 'r_e2': decompVals[13],
                   'mu_e3': decompVals[16], 'r_e3': decompVals[19],
                   'n3': decompVals[22]}
+    print(decompDict)
     return decompDict
     
 def processProf(galaxy):
@@ -51,13 +52,13 @@ def processProf(galaxy):
                 'PAFinal': newline[4], 'PA5': PA5,
                 'xpos': newline[8], 'ypos': newline[9],
                 'ellip5': ellip5}
-
+    print(profDict)
     return profDict
     
 def main(input1):
     galaxy = input1
     buildHalo = False
-    inclMask = False
+    inclMask = True
     #change this to sersic
     expString = "# Object number: 3\n0) expdisk\n1) $EXP1POS 1 1\n3) $EXP1MAG 1\n"+\
             "4) $EXP1RE 1\n9) 0 1\n10) 0 1\nZ) 0"+\
@@ -84,7 +85,7 @@ def main(input1):
         filedata = file.read()
     
     if inclMask:
-        filedata = filedata.replace("$PIXELMASK", galaxy+"-I-Flag-Invert.fits")
+        filedata = filedata.replace("$PIXELMASK", galaxy+"-I-Flag-Circ.fits")
     else:
         filedata = filedata.replace("$PIXELMASK", "none")
     
@@ -97,7 +98,7 @@ def main(input1):
     
     filedata = filedata.replace("$SERSIC1POS", center)
     filedata = filedata.replace("$SERSIC1MAG", str(decompDict['mu_e1']))
-    filedata = filedata.replace("$SERSIC1RE", str(int(decompDict['r_e1']/0.187)))
+    filedata = filedata.replace("$SERSIC1RE", str((decompDict['r_e1']/0.187)))
     filedata = filedata.replace("$SERSIC1IND", str(decompDict['n1']))
     filedata = filedata.replace("$SERSIC1PA", str(-profDict['PA5']))
     filedata = filedata.replace("$SERSIC1ELLIP", str(-profDict['ellip5']+1))
@@ -105,7 +106,7 @@ def main(input1):
     
     filedata = filedata.replace("$EXPD1POS", center)
     filedata = filedata.replace("$EXPD1MAG", str(decompDict['mu_e2']))
-    filedata = filedata.replace("$EXPD1RE", str(int(decompDict['r_e2']/0.187)))
+    filedata = filedata.replace("$EXPD1RE", str((decompDict['r_e2']/0.187)))
     filedata = filedata.replace("$EXPD1PA", str(-profDict['PAFinal']))
     filedata = filedata.replace("$EXPD1ELLIP", str(-profDict['ellip']+1))
     #add axis ratio at end
@@ -123,6 +124,6 @@ def main(input1):
     with open(galaxy+".galfit", 'w') as file:
         file.write(filedata)
     
-main(sys.argv[1])
-#main("VCC0355")
+#main(sys.argv[1])
+main("VCC0510")
 
