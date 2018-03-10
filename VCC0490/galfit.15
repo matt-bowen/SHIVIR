@@ -1,0 +1,86 @@
+
+#  Input menu file: VCC0490-halo.galfit
+
+#  Chi^2/nu = 1192493.375,  Chi^2 = 76851429376.000,  Ndof = 64446
+
+================================================================================
+# IMAGE and GALFIT CONTROL PARAMETERS
+A) VCC0490-I-Image.fits      # Input data image (FITS file)
+B) VCC0490-Output.fits      # Output data image block
+C) VCC0490-I-Sigma.fits      # Sigma image name (made from data if blank or "none") 
+D) none                # Input PSF image and (optional) diffusion kernel
+E) 1                   # PSF fine sampling factor relative to data 
+F) VCC0490-I-Flag-Circ.fits      # Bad pixel mask (FITS image or ASCII coord list)
+G) none                # File with parameter constraints (ASCII file) 
+H) 1889 2142 1888 2141 # Image region to fit (xmin xmax ymin ymax)
+I) 400    400          # Size of the convolution box (x y)
+J) 30.000              # Magnitude photometric zeropoint 
+K) 0.187  0.187        # Plate scale (dx dy)   [arcsec per pixel]
+O) regular             # Display type (regular, curses, both)
+P) 0                   # Choose: 0=optimize, 1=model, 2=imgblock, 3=subcomps
+
+# INITIAL FITTING PARAMETERS
+#
+#   For component type, the allowed functions are: 
+#       sersic, expdisk, edgedisk, devauc, king, nuker, psf, 
+#       gaussian, moffat, ferrer, and sky. 
+#  
+#   Hidden parameters will only appear when they're specified:
+#       Bn (n=integer, Bending Modes).
+#       C0 (diskyness/boxyness), 
+#       Fn (n=integer, Azimuthal Fourier Modes).
+#       R0-R10 (coordinate rotation, for creating spiral structures).
+#       To, Ti, T0-T10 (truncation function).
+# 
+# ------------------------------------------------------------------------------
+#   par)    par value(s)    fit toggle(s)    # parameter description 
+# ------------------------------------------------------------------------------
+
+# Component number: 1
+ 0) sersic                 #  Component type
+ 1) 2016.0001 2015.0000 1 1  #  Position x, y
+ 3) 20.4611     1          #  Integrated magnitude 
+ 4) 4.0774      1          #  R_e (effective radius)   [pix]
+ 5) 1.6387      1          #  Sersic index n (de Vaucouleurs n=4) 
+ 6) 0.0000      0          #     ----- 
+ 7) 0.0000      0          #     ----- 
+ 8) 0.0000      0          #     ----- 
+ 9) 0.8957      1          #  Axis ratio (b/a)  
+10) 81.7035     1          #  Position angle (PA) [deg: Up=0, Left=90]
+ Z) 0                      #  Skip this model in output image?  (yes=1, no=0)
+
+# Component number: 2
+ 0) expdisk                #  Component type
+ 1) 2016.0046 2015.0011 1 1  #  Position x, y
+ 3) 20.3651     1          #  Integrated magnitude 
+ 4) 72.6333     1          #  R_s (disk scale-length)   [pix]
+ 5) 0.0000      0          #     ----- 
+ 6) 0.0000      0          #     ----- 
+ 7) 0.0000      0          #     ----- 
+ 8) 0.0000      0          #     ----- 
+ 9) 0.9128      1          #  Axis ratio (b/a)  
+10) -54.8252    1          #  Position angle (PA) [deg: Up=0, Left=90]
+ Z) 0                      #  Skip this model in output image?  (yes=1, no=0)
+
+# Component number: 3
+ 0) sersic                 #  Component type
+ 1) 2717.6772 2476.7456 1 1  #  Position x, y
+ 3) 45.2614     1          #  Integrated magnitude 
+ 4) 20706.5703    1          #  R_e (effective radius)   [pix]
+ 5) 16.3090     1          #  Sersic index n (de Vaucouleurs n=4) 
+ 6) 0.0000      0          #     ----- 
+ 7) 0.0000      0          #     ----- 
+ 8) 0.0000      0          #     ----- 
+ 9) 0.1909      1          #  Axis ratio (b/a)  
+10) -74.6102    1          #  Position angle (PA) [deg: Up=0, Left=90]
+ Z) 0                      #  Skip this model in output image?  (yes=1, no=0)
+
+# Component number: 4
+ 0) sky                    #  Component type
+ 1) 0.8221      1          #  Sky background at center of fitting region [ADUs]
+ 2) 0.000e+00      0       #  dsky/dx (sky gradient in x)     [ADUs/pix]
+ 3) 0.000e+00      0       #  dsky/dy (sky gradient in y)     [ADUs/pix]
+ Z) 0                      #  Skip this model in output image?  (yes=1, no=0)
+
+================================================================================
+

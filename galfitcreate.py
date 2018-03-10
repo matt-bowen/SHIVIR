@@ -70,9 +70,9 @@ def main(input1):
     
     
     center = str(int(profDict['xpos'])) + ' ' + str(int(profDict['ypos']))
-    conbox = "600 600"
+    conbox = "400 400"
     addMoreRegion = 75
-    addFactor = 1
+    addFactor = 0
     fitregion = str(int(profDict['xpos']-profDict['radius'])-addFactor*addMoreRegion) + ' ' +\
                 str(int(profDict['xpos']+profDict['radius'])+addFactor*addMoreRegion) + ' ' +\
                 str(int(profDict['ypos']-profDict['radius'])-addFactor*addMoreRegion) + ' ' +\
@@ -124,5 +124,5 @@ def main(input1):
         file.write(filedata)
     
 #main(sys.argv[1])
-main("VCC0355")
+main("VCC0510")
 
