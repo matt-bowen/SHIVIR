@@ -55,12 +55,10 @@ def processProf(galaxy):
     
 def main(input1):
     galaxy = input1
-    buildHalo = False
+    buildHalo = True
     inclMask = True
     #change this to sersic
-    expString = "# Object number: 3\n0) expdisk\n1) $EXP1POS 1 1\n3) $EXP1MAG 1\n"+\
-            "4) $EXP1RE 1\n9) 0 1\n10) 0 1\nZ) 0"+\
-            "\n\n# Object number: 4"
+    expString = "# Object number: 3\n0) sersic\n1) $SERSIC2POS 1 1\n3) $SERSIC2MAG 1\n4) $SERSIC2RE 1\n5) $SERSIC2IND 1\n9) 1 1\n10) 0 1\nZ) 0\n\n# Object number: 4"
             
     noExpString = "# Object number:3"
     
@@ -70,13 +68,15 @@ def main(input1):
     #print("decomp:", decompDict, "\n")
     #print("profile:", profDict)
     
+    
     center = str(int(profDict['xpos'])) + ' ' + str(int(profDict['ypos']))
-    conbox = "400 400"
+    conbox = "600 600"
     addMoreRegion = 75
-    fitregion = str(int(profDict['xpos']-profDict['radius'])-addMoreRegion) + ' ' +\
-                str(int(profDict['xpos']+profDict['radius'])+addMoreRegion) + ' ' +\
-                str(int(profDict['ypos']-profDict['radius'])-addMoreRegion) + ' ' +\
-                str(int(profDict['ypos']+profDict['radius'])+addMoreRegion)
+    addFactor = 1
+    fitregion = str(int(profDict['xpos']-profDict['radius'])-addFactor*addMoreRegion) + ' ' +\
+                str(int(profDict['xpos']+profDict['radius'])+addFactor*addMoreRegion) + ' ' +\
+                str(int(profDict['ypos']-profDict['radius'])-addFactor*addMoreRegion) + ' ' +\
+                str(int(profDict['ypos']+profDict['radius'])+addFactor*addMoreRegion)
     
     
     with open("GALFITTEMPLATE", 'r') as file :
@@ -110,9 +110,10 @@ def main(input1):
     #add axis ratio at end
     
     if buildHalo: #change this to sersic
-        expString = expString.replace("$EXP1POS", center)
-        expString = expString.replace("$EXP1MAG", str(decompDict['mu_e3']))
-        expString = expString.replace("$EXP1RE", str(decompDict['r_e3']/0.187))
+        expString = expString.replace("$SERSIC2POS", center)
+        expString = expString.replace("$SERSIC2MAG", str(decompDict['mu_e3']))
+        expString = expString.replace("$SERSIC2RE", str(decompDict['r_e3']/0.187))
+        expString = expString.replace("$SERSIC2IND", str(decompDict['n3']))
         filedata = filedata.replace("$EXPBOOL", expString)
     else:
         filedata = filedata.replace("$EXPBOOL", noExpString)
@@ -123,5 +124,5 @@ def main(input1):
         file.write(filedata)
     
 #main(sys.argv[1])
-main("VCC0725")
+main("VCC0355")
 
