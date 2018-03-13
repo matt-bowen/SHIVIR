@@ -1,9 +1,13 @@
 #!/bin/bash
 while read p; do
+	mv ds9 "/home/matt/Thesis/Working Sources/SHIVIR/$p"
 	cd "/home/matt/Thesis/Working Sources/SHIVIR/$p"
 	for i in $(seq 1 3); do
-		ds9 -zoom to fit -zscale -squared $p-Output.fits[$i] -export Output$i.jpeg -exit
+		./ds9 -zoom to fit -zscale -squared $p-Output.fits[$i] -export Output$i.jpeg -exit
 	done
+	mv ds9 "/home/matt/Thesis/Working Sources/SHIVIR"
+	cd "/home/matt/Thesis/Working Sources/SHIVIR"
+	echo "Images exported for: $p"
 done <SHIVIR2.txt
 
 
