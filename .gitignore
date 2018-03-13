@@ -1,6 +1,9 @@
 #galfit
 galfit
 
+#ds9
+ds9
+
 #fits images and profiles
 *.fits
 *.prof
