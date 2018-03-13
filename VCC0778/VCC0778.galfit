@@ -8,7 +8,7 @@ D) none      #    		# Input PSF image and (optional) diffusion kernel
 E) 1                   		# PSF fine sampling factor relative to data 
 F) VCC0778-I-Flag-Circ.fits 
 G) none                		# File with parameter constraints (ASCII file) 
-H) 1783 2247 1783 2247
+H) 1858 2172 1858 2172
 I) 400 400   
 J) 30             		# Magnitude photometric zeropoint 
 K) 0.187  0.187        		# Plate scale (dx dy)    [arcsec per pixel]
@@ -21,7 +21,7 @@ P) 0                   		# Choose: 0=optimize, 1=model, 2=imgblock, 3=subcomps
  0) sersic              #  object type
  1) 2015 2015  1 1  
  3) 17.4638081751    1   
- 4) 17     1   
+ 4) 17.127901256737967     1   
  5) 1.84225168869   1    
  9) 0.768 1
 10) -22.2 1
@@ -31,7 +31,7 @@ P) 0                   		# Choose: 0=optimize, 1=model, 2=imgblock, 3=subcomps
  0) expdisk              #  object type
  1) 2015 2015  1 1  
  3) 18.8922948296    1   		
- 4) 62     1      
+ 4) 62.34299015614973     1      
  9) 0.788 1 
 10) -175.4 1
  Z) 0                   #  output option (0 = resid., 1 = Don't subtract) 

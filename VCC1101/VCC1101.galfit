@@ -1,0 +1,47 @@
+
+===============================================================================
+# IMAGE and GALFIT CONTROL PARAMETERS
+A) VCC1101-I-Image.fits        	
+B) VCC1101-Output.fits       
+C) VCC1101-I-Sigma.fits      
+D) none      #    		# Input PSF image and (optional) diffusion kernel
+E) 1                   		# PSF fine sampling factor relative to data 
+F) VCC1101-I-Flag-Circ.fits 
+G) none                		# File with parameter constraints (ASCII file) 
+H) 1876 2154 1876 2153
+I) 400 400   
+J) 30             		# Magnitude photometric zeropoint 
+K) 0.187  0.187        		# Plate scale (dx dy)    [arcsec per pixel]
+O) regular             		# Display type (regular, curses, both)
+P) 0                   		# Choose: 0=optimize, 1=model, 2=imgblock, 3=subcomps
+
+# INITIAL FITTING PARAMETERS
+
+# Object number: 1
+ 0) sersic              #  object type
+ 1) 2015 2014  1 1  
+ 3) 21.3570244676    1   
+ 4) 1.0157793567272728     1   
+ 5) 2.09423671752   1    
+ 9) 0.487 1
+10) -81.6 1
+ Z) 0                   #  output option (0 = resid., 1 = Don't subtract) 
+
+# Object number: 2
+ 0) expdisk              #  object type
+ 1) 2015 2014  1 1  
+ 3) 21.5906508482    1   		
+ 4) 66.99351134117647     1      
+ 9) 0.41100000000000003 1 
+10) -78.7 1
+ Z) 0                   #  output option (0 = resid., 1 = Don't subtract) 
+
+# Object number:3
+ 0) sky                 #  object type
+ 1) 1      1   
+ 2) 0.0000      0       #  dsky/dx (sky gradient in x)
+ 3) 0.0000      0       #  dsky/dy (sky gradient in y)
+ Z) 0                   #  output option (0 = resid., 1 = Don't subtract) 
+
+================================================================================
+

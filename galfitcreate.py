@@ -55,7 +55,7 @@ def processProf(galaxy):
     
 def main(input1):
     galaxy = input1
-    buildHalo = True
+    buildHalo = False
     inclMask = True
     #change this to sersic
     expString = "# Object number: 3\n0) sersic\n1) $SERSIC2POS 1 1\n3) $SERSIC2MAG 1\n4) $SERSIC2RE 1\n5) $SERSIC2IND 1\n9) 1 1\n10) 0 1\nZ) 0\n\n# Object number: 4"
@@ -123,6 +123,6 @@ def main(input1):
     with open(galaxy+".galfit", 'w') as file:
         file.write(filedata)
     
-#main(sys.argv[1])
-main("VCC0510")
+main(sys.argv[1])
+#main("VCC1684")
 

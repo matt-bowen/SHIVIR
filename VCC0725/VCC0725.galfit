@@ -8,7 +8,7 @@ D) none      #    		# Input PSF image and (optional) diffusion kernel
 E) 1                   		# PSF fine sampling factor relative to data 
 F) VCC0725-I-Flag-Circ.fits 
 G) none                		# File with parameter constraints (ASCII file) 
-H) 1793 2236 1795 2238
+H) 1868 2161 1870 2163
 I) 400 400   
 J) 30             		# Magnitude photometric zeropoint 
 K) 0.187  0.187        		# Plate scale (dx dy)    [arcsec per pixel]
